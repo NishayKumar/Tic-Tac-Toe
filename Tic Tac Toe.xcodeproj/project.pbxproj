@@ -55,9 +55,9 @@
 		9DAC0A0C2A70288F00DAEDCA /* Tic Tac Toe */ = {
 			isa = PBXGroup;
 			children = (
+				9DAC0A0D2A70288F00DAEDCA /* Tic_Tac_ToeApp.swift */,
 				9D6C896C2A7FD6C500C738DA /* GameViewModel.swift */,
 				9DAC0A0F2A70288F00DAEDCA /* GameView.swift */,
-				9DAC0A0D2A70288F00DAEDCA /* Tic_Tac_ToeApp.swift */,
 				9D9239052A7ECDE500B93267 /* Alerts.swift */,
 				9DAC0A112A70289000DAEDCA /* Assets.xcassets */,
 				9DAC0A132A70289000DAEDCA /* Preview Content */,

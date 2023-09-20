@@ -19,9 +19,14 @@ final class GameViewModel: ObservableObject {
     
     
     func processPlayerMove(for position: Int) {
-        humanMovePosition(for: position)
-        isGameBoardDisabled = true
-        computerMovePosition()
+        humanMovePosition(for: position) // Human Move
+        
+        // Check if the game is already over (human won or it's a draw)
+        if alertItem != nil {
+            return
+        }
+        
+        computerMovePosition() // Computer Move
     }
     
     func isSquareOccupied(in moves: [Move?], forIndex index: Int) -> Bool {
@@ -102,17 +107,22 @@ extension GameViewModel {
         if isSquareOccupied(in: moves, forIndex: position) { return }
         moves[position] = Move(player: .human, boardIndex: position)
         
+        //check for win condition or draw
         if checkWinCondition(for: .human, in: moves) {
             alertItem = AlertContext.humanWin
             return
         }
-        
+
         if checkForDraw(in: moves) {
             alertItem = AlertContext.draw
             return
         }
+        
+        isGameBoardDisabled = true
     }
+    
     func computerMovePosition() {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             let computerPosition = determineComputerMovePosition(in: moves)
             moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
@@ -129,6 +139,4 @@ extension GameViewModel {
             }
         }
     }
-    
-    
 }

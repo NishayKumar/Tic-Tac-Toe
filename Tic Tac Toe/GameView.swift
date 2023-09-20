@@ -12,6 +12,7 @@ struct GameView: View {
     @StateObject private var vm = GameViewModel()
     
     @Environment(\.colorScheme) var colorScheme
+// • colorScheme is used to change the opacity of the matrix forground when it's in light mode (1 : 0.7) • looks good this way
     
     var body: some View {
         GeometryReader{ geometry in

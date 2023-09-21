@@ -94,6 +94,13 @@ final class GameViewModel: ObservableObject {
     
     func checkForDraw(in moves: [Move?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
+        //        return moves.allSatisfy { $0 != nil }   // or
+        //        for move in moves {                // or
+        //            if move == nil {
+        //                return false
+        //            }
+        //        }
+        //        return true
     }
     func resetGame() {
         moves = Array(repeating: nil, count: 9)
